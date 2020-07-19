@@ -1,0 +1,32 @@
+.taskArea {
+    &__listing {
+        overflow-x: auto;
+        text-align: left;
+        white-space: nowrap;
+        min-height: 90px;
+        position: relative;
+        
+        &--textcenter {
+            text-align: center;
+            line-height: 90px;
+        }
+        
+        &__item {
+            width: 120px;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            margin-left: 15px;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+        img {
+            border-radius: 3px;
+        }
+        &__label {
+            padding-top: 10px;
+        }
+    }
+}
+

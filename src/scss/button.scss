@@ -1,0 +1,36 @@
+.btn {
+    @extend .f-normal;
+    border: none;
+    padding: 10px 20px 9px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 12px;
+    display: inline-flex;
+
+    .loader {
+        margin-right: 10px;
+    }
+
+    &__block {
+        display: block;
+        width: 100%;
+    }
+
+    
+    &__parimary {
+        // background:$color-action;
+        background:#1DA89C;
+        color: #fff;
+    }
+
+    &__secondary {
+        background:$color-parimary;
+        color: #fff;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        background:$color-disabled;
+    }
+}
