@@ -26,7 +26,8 @@ export default function ChartView(props) {
     );
   }
 
-  return <HighchartsReact highcharts={Highcharts} options={_options} />;
+  
+return state.chartData.length === 0 ? 'Loading...' : <HighchartsReact highcharts={Highcharts} options={_options} />;
 }
 
 ChartView.defaultProps = {

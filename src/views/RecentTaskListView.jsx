@@ -24,7 +24,6 @@ function RecentTaskListView( props ) {
 
     const loadData = () => {
         http.task.getAll().then( ( response ) => {
-            // console.log(response.payload.objectList)
             setState( { ...state, rows: response.payload.objectList, isLoading: false } );
 
         } ).catch( ( e ) => {
@@ -42,11 +41,7 @@ function RecentTaskListView( props ) {
         <div className='card card--mb20'>
             <div className='grid-inner'>
                 <h4 className='heading--h4'>Upcoming Task</h4>
-                {/* <SelectView
-                    { ...{
-                        type: 'download'
-                    } }
-                /> */}
+                
                  
                   <Downloadreport />
             </div>
@@ -57,7 +52,6 @@ function RecentTaskListView( props ) {
                         <th>Area</th>
                         <th>Assign To</th>
                         <th>Stauts</th>
-                        {/* <th>Created on</th> */}
                         <th>Task Date</th>
                         <th>Actions</th>
                         <th>Comments</th>
@@ -118,8 +112,6 @@ const TableBodyRow = ( payload ) => {
 var array = allUsers,
     object = Object.assign({}, ...array);
     
-    // console.log(object)
-    console.log(rowData.status)
    
     return (
         <>
@@ -128,11 +120,10 @@ var array = allUsers,
             <td>{ getValueByOptions( 'area', rowData.areaId, areas ) }</td>
             <td>{ getValueByOptions( 'assignTo', rowData.assignToId, allUsers ) }</td>
             <td>{ rowData.status }</td>
-            {/* <td>{ utils.dateFormate( rowData.taskCreationDate ) }</td> */}
             <td>{ (rowData.taskDate)}</td>
-            {/* {console.log(rowData)} */}
+           
             <td>
-                {/* {console.log(rowData)} */}
+              
                 {rowData.status===("Upcoming")  ? 
                 <>
                 <Tooltip title='Approved'>

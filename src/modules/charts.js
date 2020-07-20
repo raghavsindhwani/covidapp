@@ -2,7 +2,8 @@ const options = {
   credits: {
     enabled: false,
   },
-  legend: {
+  legend:
+   {
     symbolHeight: 10,
     symbolWidth: 10,
     symbolRadius: 10,
@@ -37,9 +38,11 @@ export const chart = {
     const _data = payload.map((i) => {
       return [i.status, i.count];
     });
-    console.log(_data)
-    console.log(payload)
-  
+   
+    const checkvalue = payload.some((i) =>{
+      return i.count !== 0;
+    });
+    // console.log(checkvalue)
 
     let _options = {
       ...options,
@@ -54,12 +57,13 @@ export const chart = {
             enabled: false,
           },
           borderWidth: 0,
-          colors: ["#009933", "#ffff00", "#ff0000"],
+          colors: ["#0099ff", "#33cc33", "#ffff00"],
           showInLegend: true,
         },
       },
-       series: [{}] ?
-      [{ data :  _data}] :  [{ data: [['Pending', 10], ['Completed', 10], ['Upcoming', 10]] }]
+
+       series: checkvalue ? [{ data :  _data}] : []
+      
       
     };
 
@@ -69,17 +73,17 @@ export const chart = {
     const _series = [
       {
         name: "Pending",
-        color: "#00ccff",
+        color: "#0099ff",
         data: [],
       },
       {
         name: "Completed",
-        color: "#ff66ff",
+        color: "#33cc33",
         data: [],
       },
       {
         name: "Upcoming",
-        color: "#6600cc",
+        color: "#ffff00",
         data: [],
       },
     ];
@@ -126,36 +130,22 @@ export const chart = {
       },
 
       series: _series 
-
-      // series: null ?
-      // _series : 
+      
       // [{
-      //       name: 'Pending',
-      //       color: '#09554F',
-      //       data: [5, 3, 4, 7, 2]
-      //   }, {
-      //       name: 'Completed',
-      //       color: '#25D0C1',
-      //       data: [2, 2, 3, 2, 1]
-      //   }, {
-      //       name: 'Upcoming',
-      //       color: '#1DA89C',
-      //       data: [3, 4, 4, 2, 5]
-      //   }]
-      // series: _series,
-    //   series: [{
-    //     name: 'Pending',
-    //     color: '#09554F',
-    //     data: [5, 3, 4, 7, 2]
-    // }, {
-    //     name: 'Completed',
-    //     color: '#25D0C1',
-    //     data: [2, 2, 3, 2, 1]
-    // }, {
-    //     name: 'Upcoming',
-    //     color: '#1DA89C',
-    //     data: [3, 4, 4, 2, 5]
-    // }]
+      //         name: 'Pending',
+      //         color: '#09554F',
+      //         data: [5, 3, 4, 7, 2]
+      //     }, {
+      //         name: 'Completed',
+      //         color: '#25D0C1',
+      //         data: [2, 2, 3, 2, 1]
+      //     }, {
+      //         name: 'Upcoming',
+      //         color: '#1DA89C',
+      //         data: [3, 4, 4, 2, 5]
+      //     }]
+
+      
     };
 
     return _options;
